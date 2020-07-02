@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-12">
+        <form ng-submit="pctrl.dodajPredmet()" name="predmetForma">
+            <div class="form-group">
+                <label for="prezime">Naziv:</label>
+                <input type="text" name="naziv" id="naziv" class="form-control" ng-model="pctrl.noviPredmet.naziv" required>
+            </div>
+            <div class="form-group">
+                <label for="korisnicko_ime">Skracenica:</label>
+                <input type="text" name="skracenica" id="skracenica" class="form-control" ng-model="pctrl.noviPredmet.skracenica" required>
+            </div>
+            <div class="form-group">
+                <label for="profesor_id">ID Profesora:</label>
+                <input type="text" name="profesor_id" id="profesor_id" class="form-control" ng-model="pctrl.noviPredmet.profesor_id" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj predmet" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</div>

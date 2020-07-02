@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-12">
+        <form ng-submit="pctrl.sacuvaj()" name="studentForma">
+            <div class="form-group">
+                <label for="ime">Predmet:</label>
+                <select name="predmet" id="predmet" ng-model="pctrl.noviZadatak.predmet_id">
+                    <option ng-repeat="p in pctrl.predmeti" value="{{p.id}}">{{p.naziv}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="prezime">Naslov:</label>
+                <input type="text" name="ime" id="ime" class="form-control" ng-model="pctrl.noviZadatak.naslov" required>
+            </div>
+            <div class="form-group">
+                <label for="sadrzaj">Sadrzaj:</label>
+                <input type="text" name="sadrzaj" id="sadrzaj" class="form-control" ng-model="pctrl.noviZadatak.sadrzaj" required>
+            </div>
+            <div class="form-group">
+                <label for="datum_provere">Datum provere:</label>
+                <input type="text" name="datum_provere" id="datum" class="form-control" ng-model="pctrl.noviZadatak.datum_provere" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj zadatak" class="btn btn-primary" onclick="provera(event)">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function provera(event) {
+
+        let datum = document.getElementById("datum").value
+        datum.slice(0, 19)
+        datum.replace("T", " ");
+        
+
+        let today = new Date()
+
+        let dd = today.getDate()
+        let mm = today.getMonth() + 1
+        let yyyy = today.getFullYear()
+        let hh = today.getHours()
+        let min = today.getMinutes()
+
+        if (dd < 10) dd = "0" + dd
+        if (mm < 10) mm = "0" + mm
+        if (hh < 10) hh = "0" + hh
+        if (min < 10) min = "0" + min
+
+        let now = yyyy + "-" + mm + "-" + dd + " " + hh + ":" + min
+/*
+        console.log(hh)
+        console.log(mm)*/
+
+        console.log(now)
+        console.log(datum)
+
+        if (now > datum) {
+            event.target.setCustomValidity("Datum nije validan!")
+        } 
+        else {
+            datum.getHours() = datum.getHours() + 2
+            event.target.setCustomValidity("");
+        }
+    }
+</script>

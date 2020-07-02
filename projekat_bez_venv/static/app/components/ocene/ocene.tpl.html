@@ -1,0 +1,28 @@
+<div class="row">
+   
+    <div class="col-12">
+        <h1>OCENE</h1><br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Redni broj</th>
+                    <th>Student</th>
+                    <th>Zadatak</th>
+                    <th>Ocena</th>
+                    <th>Datum ocene</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr ng-repeat="p in pctrl.ocene">
+                    
+                    <td>{{$index+1}}.</td>
+                    <td>{{p["student_id"]}}</td>
+                    <td>{{p["zadatak_id"]}}</td>
+                    <td>{{p["ocena"]}}</td>
+                    <td>{{p["datum_ocene"]}}</td>
+                    
+                
+                </tr>
+            </tbody>
+        </table>

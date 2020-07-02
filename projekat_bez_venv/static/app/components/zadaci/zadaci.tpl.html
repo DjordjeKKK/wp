@@ -1,0 +1,32 @@
+<div class="row">
+   
+    <div class="col-12">
+        <h1>ZADACI</h1><br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Redni broj</th>
+                    <th>Predmet</th>
+                    <th>Naslov</th>
+                    <th>Sadrzaj</th>
+                    <th>Datum provere</th>
+                    <th>Obrisi</th>
+                    <th>Izmeni</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr ng-repeat="p in pctrl.zadaci">
+                    
+                    <td>{{$index+1}}.</td>
+                    <td>{{p["predmet_id"]}}</td>
+                    <!-- <td>{{pctrl.imena[$index]}}</td> -->
+                    <td>{{p["naslov"]}}</td>
+                    <td>{{p["sadrzaj"]}}</td>
+                    <td>{{p["datum_provere"]}}</td>
+                    
+                    <td><button class="btn btn-danger" ng-click="pctrl.obrisiZadatak(p['id'])">Obrisi</button></td>
+                    <td> <a ui-sref="izmenaZadatka({id: p['id']})">Izmeni</a></td>
+                </tr>
+            </tbody>
+        </table>

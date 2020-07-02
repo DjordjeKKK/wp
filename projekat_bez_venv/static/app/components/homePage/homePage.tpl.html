@@ -1,0 +1,60 @@
+<div class="row">
+   
+    <div class="col-12">
+        <h1>PREDMETI</h1><br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Redni broj</th>
+                    <th>ID</th>
+                    <th>Naziv</th>
+                    <th>Skracenica</th>
+                    <th>Obrisi</th>
+                    <th>Izmeni</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr ng-repeat="p in pctrl.predmeti">
+                    
+                    <td>{{$index+1}}.</td>
+                    <!-- <td><a ui-sref="korisnik({id: p['id']})">{{p["ime"]}}</a></td> -->
+                    <td>{{p["id"]}}</td>
+                    <td>{{p["naziv"]}}</td>
+                    <td>{{p["skracenica"]}}</td>
+                    
+                    <td><button class="btn btn-danger" ng-click="pctrl.obrisiPredmet(p['id'])">Obrisi</button></td>
+                    <td> <a ui-sref="izmenaPredmeta({id: p['id']})">Izmeni</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <br><h1>STUDENTI</h1><br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Redni broj</th>
+                    <th>Indeks</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Obrisi</th>
+                    <th>Izmeni</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr ng-repeat="p in pctrl.studenti">
+                   
+                    <td>{{$index+1}}.</td>
+                    
+                    <!-- <td><a ui-sref="tipovi({id: p['id']})">{{p["naziv"]}}</a></td> -->
+                    <td>{{p["indeks"]}}</td>
+                    <td>{{p["ime"]}}</td>
+                    <td>{{p["prezime"]}}</td>
+                    
+                    <td><button class="btn btn-danger" ng-click="pctrl.obrisiStudenta(p['id'])">Obrisi</button></td>
+                    <td> <a ui-sref="izmenaStudenta({id: p['id']})">Izmeni</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
